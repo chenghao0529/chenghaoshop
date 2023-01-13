@@ -1,5 +1,6 @@
 package com.chenghao.work.mall.goods.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.chenghao.work.mall.common.util.RespResult;
 import com.chenghao.work.mall.goods.model.BrandEntity;
 import com.chenghao.work.mall.goods.service.IBrandService;
@@ -43,9 +44,22 @@ public class BrandController {
      * 删除品牌
      */
     @DeleteMapping("/{id}")
-    public RespResult delete(@PathVariable(value = "id") Integer id){
+    public RespResult delete(@PathVariable(value = "id") Integer id) {
         //删除品牌
         brandService.removeById(id);
         return RespResult.ok();
+    }
+
+    /****
+     * 条件分页查询
+     */
+    @PostMapping(value = "/list/{page}/{size}")
+    public RespResult<Page<BrandEntity>> list(
+            @PathVariable(value = "page") Long currentPage,
+            @PathVariable(value = "size") Long size,
+            @RequestBody(required = false) BrandEntity brand) {
+        // 分页查询
+        Page<BrandEntity> brandPage = brandService.queryPageList(currentPage, size, brand);
+        return RespResult.ok(brandPage);
     }
 }

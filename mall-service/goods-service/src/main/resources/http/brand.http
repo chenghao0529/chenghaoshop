@@ -1,3 +1,4 @@
+### 品牌新增操作
 POST http://localhost:8081/brand
 Content-Type: application/json
 
@@ -8,6 +9,27 @@ Content-Type: application/json
   "sort": 1
 }
 
+### 品牌编辑操作
+PUT http://localhost:8081/brand
+Content-Type: application/json
 
+{
+  "id": 15,
+  "name": "小米2",
+  "image": "https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=%E5%B0%8F%E7%B1%B3%E6%89%8B%E6%9C%BA%E5%9B%BE%E7%89%87&hs=0&pn=1&spn=0&di=7169026086108397569&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&ie=utf-8&oe=utf-8&cl=2&lm=-1&cs=1375164326%2C2630392642&os=3373284223%2C790282619&simid=3311092385%2C79353813&adpicid=0&lpn=0&ln=30&fr=ala&fm=&sme=&cg=&bdtype=0&oriquery=%E5%B0%8F%E7%B1%B3%E6%89%8B%E6%9C%BA%E5%9B%BE%E7%89%87&objurl=https%3A%2F%2Fzhongces3.sina.com.cn%2Fproduct%2F20210823%2F135bfb75ff09d6ba6017dbf79093ba2d.jpeg&fromurl=ippr_z2C%24qAzdH3FAzdH3Fzi5g2vj_z%26e3Bftgw_z%26e3Bv54_z%26e3BvgAzdH3Fw6ptvsjAzdH3FetjoAzdH3F8aa999AzdH3F&gsm=&islist=&querylist=&dyTabStr=MCwzLDIsNiwxLDQsNSw3LDgsOQ%3D%3D",
+  "initial": "",
+  "sort": 1
+}
+
+### 品牌删除操作
+DELETE http://localhost:8081/brand/14
+
+### 品牌分页查询操作
+POST http://localhost:8081/brand/list/1/10
+Content-Type: application/json
+
+{
+  "name": "小"
+}
 
 ###

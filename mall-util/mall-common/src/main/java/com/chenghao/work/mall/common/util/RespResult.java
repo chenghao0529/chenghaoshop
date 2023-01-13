@@ -44,7 +44,7 @@ public class RespResult<T> implements Serializable {
         return new RespResult(null, RespCode.SUCCESS);
     }
 
-    public static RespResult<Object> ok(Object data) {
+    public static RespResult ok(Object data) {
         return new RespResult(data, RespCode.SUCCESS);
     }
 
